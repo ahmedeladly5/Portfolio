@@ -238,7 +238,7 @@
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7a2 2 0 0 1 2-2h4l2 2h10a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2Z"/><path d="m9 13 2 2 4-4"/></svg>
                     </div>
                     <h3>Projects</h3>
-                    <p>Hospital graduation project, BIM models, schedules, and coordination work.</p>
+                    <p>Graduation project, shop drawings, reinforcement detailing and BIM projects in Egypt and KSA.</p>
                     <span class="overview-card-link">
                         View Projects
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
@@ -305,26 +305,6 @@
                 <div class="skill-card">
 
                     <div class="skill-icon css-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/><path d="M8 14h4"/><path d="M8 18h8"/></svg>
-                    </div>
-
-                    <h3>Planning &amp; Cost</h3>
-
-                    <p>
-                        Complete project schedules with WBS and resource allocation, performance tracking reports and cost estimation using Primavera and Excel.
-                    </p>
-
-                    <div class="skill-tags">
-                        <span>Primavera P6</span>
-                        <span>WBS</span>
-                        <span>Cost Estimation</span>
-                    </div>
-
-                </div>
-
-                <div class="skill-card">
-
-                    <div class="skill-icon js-icon">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="12" cy="18" r="3"/><path d="M8.5 7.5 10.5 16"/><path d="M15.5 7.5 13.5 16"/><path d="M9 6h6"/></svg>
                     </div>
 
@@ -344,20 +324,60 @@
 
                 <div class="skill-card">
 
-                    <div class="skill-icon tools-icon">
+                    <div class="skill-icon js-icon">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/><path d="m14.5 4-5 16"/></svg>
                     </div>
 
-                    <h3>Automation &amp; Visualization</h3>
+                    <h3>Automation</h3>
 
                     <p>
-                        Visual programming with Dynamo and VR visualization using Lumion and Enscape.
+                        Visual programming with Dynamo to automate repetitive tasks in Revit.
                     </p>
 
                     <div class="skill-tags">
                         <span>Dynamo</span>
+                        <span>Visual Programming</span>
+                        <span>Revit</span>
+                    </div>
+
+                </div>
+
+                <div class="skill-card">
+
+                    <div class="skill-icon tools-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+                    </div>
+
+                    <h3>Visualization</h3>
+
+                    <p>
+                        VR visualization and presentation of BIM models using Lumion and Enscape.
+                    </p>
+
+                    <div class="skill-tags">
                         <span>Lumion</span>
                         <span>Enscape</span>
+                        <span>VR</span>
+                    </div>
+
+                </div>
+
+                <div class="skill-card">
+
+                    <div class="skill-icon plan-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/><path d="M8 14h4"/><path d="M8 18h8"/></svg>
+                    </div>
+
+                    <h3>Planning &amp; Cost</h3>
+
+                    <p>
+                        Complete project schedules with WBS and resource allocation, performance tracking reports and cost estimation using Primavera and Excel.
+                    </p>
+
+                    <div class="skill-tags">
+                        <span>Primavera P6</span>
+                        <span>WBS</span>
+                        <span>Cost Estimation</span>
                     </div>
 
                 </div>
@@ -431,14 +451,16 @@
                 </h2>
 
                 <p class="section-subtitle">
-                    Selected academic and training projects in BIM, planning and construction management.
+                    Selected academic and training projects. Click a project for details.
                 </p>
 
             </div>
 
+            <div class="project-filters" id="project-filters" role="group" aria-label="Filter projects"></div>
+
             <div class="projects-grid">
 
-                <article class="project-card">
+                <article class="project-card" data-project="graduation" data-tags="revit navisworks dynamo primavera shop-drawings" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open project details">
 
                     <div class="project-top">
                         <div class="project-icon">
@@ -450,13 +472,13 @@
                     <h3>Bani Mazar Hospital</h3>
 
                     <p>
-                        Graduation project on Construction Project Management, graded A+, covering the planning and management of a hospital building.
+                        Graduation project (Grade A+). Team leader covering Primavera scheduling, QS, cost estimation, clash detection and 4D, 5D and 6D simulation.
                     </p>
 
                     <div class="project-tags">
-                        <span>Project Management</span>
-                        <span>Planning</span>
-                        <span>Cost Estimation</span>
+                        <span>Revit</span>
+                        <span>Navisworks</span>
+                        <span>Primavera P6</span>
                     </div>
 
                     <div class="project-footer">
@@ -467,7 +489,7 @@
                 </article>
 
 
-                <article class="project-card">
+                <article class="project-card" data-project="marble-factory" data-tags="revit dynamo shop-drawings" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open project details">
 
                     <div class="project-top">
                         <div class="project-icon">
@@ -476,27 +498,27 @@
                         <span class="project-number">02</span>
                     </div>
 
-                    <h3>Integrated BIM Models</h3>
+                    <h3>Marble Factory</h3>
 
                     <p>
-                        Participated in developing integrated 4D, 5D, 6D and 7D BIM models and dashboards during the KAITECH BIM Diploma.
+                        Prepared and reviewed shop drawings, model and material submittals for a marble factory in Cairo.
                     </p>
 
                     <div class="project-tags">
                         <span>Revit</span>
-                        <span>Navisworks</span>
-                        <span>4D / 5D / 6D / 7D</span>
+                        <span>Dynamo</span>
+                        <span>ACC</span>
                     </div>
 
                     <div class="project-footer">
-                        <span>BIM Diploma</span>
+                        <span>Cairo, Egypt</span>
                         <span>↗</span>
                     </div>
 
                 </article>
 
 
-                <article class="project-card">
+                <article class="project-card" data-project="villa-shopdrawings" data-tags="revit dynamo shop-drawings rebar" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open project details">
 
                     <div class="project-top">
                         <div class="project-icon">
@@ -505,27 +527,27 @@
                         <span class="project-number">03</span>
                     </div>
 
-                    <h3>Project Schedule with Primavera</h3>
+                    <h3>Villa Shopdrawings</h3>
 
                     <p>
-                        Developed complete schedules with WBS and resource allocation, and created performance tracking reports and weekly dashboards.
+                        Shop drawings, reinforcement modeling and detailing for a villa in Cairo.
                     </p>
 
                     <div class="project-tags">
-                        <span>Primavera P6</span>
-                        <span>WBS</span>
-                        <span>Resource Allocation</span>
+                        <span>Revit</span>
+                        <span>Dynamo</span>
+                        <span>Rebar Detailing</span>
                     </div>
 
                     <div class="project-footer">
-                        <span>Planning &amp; Scheduling</span>
+                        <span>Cairo, Egypt</span>
                         <span>↗</span>
                     </div>
 
                 </article>
 
 
-                <article class="project-card">
+                <article class="project-card" data-project="kaitech-school" data-tags="revit navisworks dynamo shop-drawings" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open project details">
 
                     <div class="project-top">
                         <div class="project-icon">
@@ -534,27 +556,27 @@
                         <span class="project-number">04</span>
                     </div>
 
-                    <h3>Multidisciplinary Coordination</h3>
+                    <h3>Kaitech School</h3>
 
                     <p>
-                        Fully collaborated project with ARCH and MEP using Revit work-sharing, Autodesk Construction Cloud and Navisworks clash detection.
+                        Shop drawings, QS, clash detection, 4D to 7D BIM and VR/AR visualization for a school project.
                     </p>
 
                     <div class="project-tags">
                         <span>Revit</span>
                         <span>Navisworks</span>
-                        <span>Clash Detection</span>
+                        <span>Lumion</span>
                     </div>
 
                     <div class="project-footer">
-                        <span>BIM Coordination</span>
+                        <span>Cairo, Egypt</span>
                         <span>↗</span>
                     </div>
 
                 </article>
 
 
-                <article class="project-card">
+                <article class="project-card" data-project="jubailah-oasis" data-tags="revit dynamo rebar" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open project details">
 
                     <div class="project-top">
                         <div class="project-icon">
@@ -563,49 +585,20 @@
                         <span class="project-number">05</span>
                     </div>
 
-                    <h3>Dynamo Automation</h3>
+                    <h3>Al-Jubailah Oasis</h3>
 
                     <p>
-                        Automation of BIM tasks using visual programming with Dynamo.
+                        Ground floor beams reinforcement modeling and detailing for a project in Al-Riyadh, KSA.
                     </p>
 
                     <div class="project-tags">
+                        <span>Revit</span>
                         <span>Dynamo</span>
-                        <span>Revit</span>
-                        <span>Visual Programming</span>
+                        <span>Rebar Detailing</span>
                     </div>
 
                     <div class="project-footer">
-                        <span>Automation</span>
-                        <span>↗</span>
-                    </div>
-
-                </article>
-
-
-                <article class="project-card">
-
-                    <div class="project-top">
-                        <div class="project-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/></svg>
-                        </div>
-                        <span class="project-number">06</span>
-                    </div>
-
-                    <h3>VR Visualization</h3>
-
-                    <p>
-                        Visualization and virtual reality walkthroughs of BIM models using Lumion and Enscape.
-                    </p>
-
-                    <div class="project-tags">
-                        <span>Lumion</span>
-                        <span>Enscape</span>
-                        <span>Revit</span>
-                    </div>
-
-                    <div class="project-footer">
-                        <span>Visualization</span>
+                        <span>Riyadh, KSA</span>
                         <span>↗</span>
                     </div>
 
@@ -720,37 +713,35 @@
                 </h2>
 
                 <p class="section-subtitle">
-                    Diplomas, trainings and workshops I have completed.
+                    Diplomas, trainings and workshops. Click a card to view the certificate.
                 </p>
 
             </div>
 
             <div class="courses-grid">
 
-                <div class="course-card">
+                <div class="course-card" data-cert="bim-diploma" data-count="2" role="button" tabindex="0" aria-haspopup="dialog" aria-label="View certificate">
 
-                    <div class="course-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                    <div class="course-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></div>
 
                     <h3>BIM Diploma</h3>
 
-                    <p class="course-provider">
-                        KAITECH
-                    </p>
-
                     <p>
-                        300+ hours of intensive hands-on training aligned with ISO 19650, including integrated 4D, 5D, 6D and 7D BIM models, dashboards and multidisciplinary coordination.
+                        KAITECH Structural BIM Diploma: 300+ hours of intensive hands-on training aligned with ISO 19650, including integrated 4D, 5D, 6D and 7D BIM models, dashboards and multidisciplinary coordination.
                     </p>
 
                     <span class="course-category">
                         BIM · AUG 2024 – APR 2025
                     </span>
 
+                    <span class="view-hint">View certificate ↗</span>
+
                 </div>
 
 
-                <div class="course-card">
+                <div class="course-card" data-cert="primavera-p6" data-count="1" role="button" tabindex="0" aria-haspopup="dialog" aria-label="View certificate">
 
-                    <div class="course-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="4" fill="#F7DF1E"/><path d="M6.5 17.5l2-1.2c.4.8.8 1.4 1.7 1.4.9 0 1.5-.4 1.5-1.4v-6.3h2.6v6.3c0 2.4-1.4 3.5-3.8 3.5-2.1 0-3.3-1.1-4-2.3zm8.3-.3l2-1.2c.5.9 1.2 1.5 2.3 1.5 1 0 1.6-.5 1.6-1.2 0-.8-.6-1.1-2-1.7l-.7-.3c-2-.9-3.3-1.9-3.3-4.2 0-2.1 1.6-3.7 4.1-3.7 1.8 0 3.1.6 3.9 2.2l-2 1.3c-.4-.8-1-1.2-1.9-1.2-.9 0-1.5.5-1.5 1.1 0 .7.6 1 1.8 1.5l.7.3c2.3 1 3.5 2.1 3.5 4.4 0 2.5-2 3.8-4.4 3.8-2.5 0-4-1.2-4.6-2.5z" fill="#000000"/></svg></div>
+                    <div class="course-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/><path d="M8 14h4"/><path d="M8 18h8"/></svg></div>
 
                     <h3>Primavera P6 Training</h3>
 
@@ -762,12 +753,14 @@
                         PLANNING · AUG 2025
                     </span>
 
+                    <span class="view-hint">View certificate ↗</span>
+
                 </div>
 
 
-                <div class="course-card">
+                <div class="course-card" data-cert="gis-workshop" data-count="1" role="button" tabindex="0" aria-haspopup="dialog" aria-label="View certificate">
 
-                    <div class="course-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 1 4 4c0 1.5-.8 2.8-2 3.5V11a2 2 0 0 0 2 2h1.5a3.5 3.5 0 1 1 0 7H16a2 2 0 0 0-2 2v.5a3.5 3.5 0 1 1-7 0V22a2 2 0 0 0-2-2H3.5a3.5 3.5 0 1 1 0-7H5a2 2 0 0 0 2-2v-1.5C5.8 8.8 5 7.5 5 6a4 4 0 0 1 7-2.6V2z"/><circle cx="12" cy="12" r="2"/></svg></div>
+                    <div class="course-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></div>
 
                     <h3>GIS Workshop for AEC Professionals</h3>
 
@@ -779,12 +772,14 @@
                         WORKSHOP · MAY 2025
                     </span>
 
+                    <span class="view-hint">View certificate ↗</span>
+
                 </div>
 
 
-                <div class="course-card">
+                <div class="course-card" data-cert="revit-coordinates" data-count="1" role="button" tabindex="0" aria-haspopup="dialog" aria-label="View certificate">
 
-                    <div class="course-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+                    <div class="course-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
 
                     <h3>Revit Coordinates Workshop</h3>
 
@@ -795,6 +790,27 @@
                     <span class="course-category">
                         WORKSHOP · JUL 2025
                     </span>
+
+                    <span class="view-hint">View certificate ↗</span>
+
+                </div>
+
+
+                <div class="course-card" data-cert="technical-coordination" data-count="1" role="button" tabindex="0" aria-haspopup="dialog" aria-label="View certificate">
+
+                    <div class="course-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="12" cy="18" r="3"/><path d="M8.5 7.5 10.5 16"/><path d="M15.5 7.5 13.5 16"/><path d="M9 6h6"/></svg></div>
+
+                    <h3>Technical Coordination Workshop</h3>
+
+                    <p>
+                        KAITECH workshop on technical coordination: coordination in project stages, MEP zoning sections, early coordination issues and composite drawings.
+                    </p>
+
+                    <span class="course-category">
+                        WORKSHOP · SEP 2025
+                    </span>
+
+                    <span class="view-hint">View certificate ↗</span>
 
                 </div>
 
@@ -926,6 +942,28 @@
         aria-label="Back to top">
         ↑
     </button>
+
+
+    <div class="modal" id="project-modal" hidden>
+        <div class="modal-backdrop" data-close></div>
+        <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="pm-title">
+            <button type="button" class="modal-close" data-close aria-label="Close"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+            <p class="modal-meta" id="pm-meta"></p>
+            <h3 class="modal-title" id="pm-title"></h3>
+            <div class="modal-section" id="pm-role-wrap"><h4>My Role</h4><ul id="pm-role"></ul></div>
+            <div class="modal-section" id="pm-software-wrap"><h4>Software Used</h4><div class="modal-chips" id="pm-software"></div></div>
+            <div class="modal-section" id="pm-gallery-wrap" hidden><h4>Project Images</h4><div class="modal-gallery" id="pm-gallery"></div></div>
+        </div>
+    </div>
+
+    <div class="modal" id="cert-modal" hidden>
+        <div class="modal-backdrop" data-close></div>
+        <div class="modal-panel modal-panel-wide" role="dialog" aria-modal="true" aria-labelledby="cm-title">
+            <button type="button" class="modal-close" data-close aria-label="Close"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+            <h3 class="modal-title" id="cm-title"></h3>
+            <div class="cert-body" id="cm-body"></div>
+        </div>
+    </div>
 
 
     <script src="script.js"></script>

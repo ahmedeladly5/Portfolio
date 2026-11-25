@@ -401,3 +401,280 @@ animateConcepts();
     }
 
 });
+
+
+/* ===== Added: project filters, project details and certificate modals ===== */
+document.addEventListener("DOMContentLoaded", function () {
+
+    /* Edit the text below to change what shows in each project popup.
+       "images" = how many pictures are in images/projects/<id>/ (named 1.jpg, 2.jpg ...).
+       Certificates: images/certificates/<id>/1.jpg ... and data-count="N" on the course card in index.html. */
+    const PROJECTS = {
+        "graduation": {
+            "images": 14,
+            "meta": "Bani Mazar, El Minya, Egypt · Graduation Project",
+            "title": "Bani Mazar Hospital",
+            "role": [
+                "Team leader",
+                "Created project scheduling with Primavera P6 and Excel",
+                "Prepared/reviewed shop drawings, model and material submittals",
+                "QS with AutoCAD and Revit",
+                "Cost estimation, pricing and cashflow",
+                "Clash detection with Navisworks; collaboration via ACC",
+                "4D and 5D simulation with Navisworks",
+                "6D with Autodesk Forma"
+            ],
+            "software": [
+                "AutoCAD",
+                "Primavera P6",
+                "Revit",
+                "ACC",
+                "Dynamo",
+                "Navisworks",
+                "Notepad++",
+                "Primavera Risk Analysis",
+                "Autodesk Forma",
+                "Excel"
+            ]
+        },
+        "marble-factory": {
+            "images": 7,
+            "meta": "Cairo, Egypt",
+            "title": "Marble Factory",
+            "role": [
+                "Prepared/reviewed shop drawings, model and material submittals"
+            ],
+            "software": [
+                "Revit",
+                "Dynamo",
+                "ACC"
+            ]
+        },
+        "villa-shopdrawings": {
+            "images": 8,
+            "meta": "Cairo, Egypt",
+            "title": "Villa Shopdrawings",
+            "role": [
+                "Prepared/reviewed shop drawings and model",
+                "Reinforcement modeling and detailing"
+            ],
+            "software": [
+                "Revit",
+                "Dynamo",
+                "ACC"
+            ]
+        },
+        "kaitech-school": {
+            "images": 17,
+            "meta": "Cairo, Egypt",
+            "title": "Kaitech School",
+            "role": [
+                "Prepared/reviewed shop drawings, model and material submittals",
+                "QS with Revit",
+                "Clash detection with Navisworks; collaboration via ACC",
+                "4D and 5D simulation with Navisworks",
+                "6D with Autodesk Forma",
+                "7D with COBie",
+                "VR and AR with Lumion and Augin"
+            ],
+            "software": [
+                "Revit",
+                "ACC",
+                "Dynamo",
+                "Navisworks",
+                "Notepad++",
+                "Autodesk Forma",
+                "Lumion",
+                "Augin",
+                "Excel"
+            ]
+        },
+        "jubailah-oasis": {
+            "images": 8,
+            "meta": "Al-Riyadh, KSA",
+            "title": "Al-Jubailah Oasis",
+            "role": [
+                "Ground floor beams reinforcement modeling and detailing"
+            ],
+            "software": [
+                "Revit",
+                "Dynamo"
+            ]
+        }
+    };
+
+    const body = document.body;
+    let lastFocus = null;
+
+    /* ---- helpers ---- */
+    function openModal(modal) {
+        lastFocus = document.activeElement;
+        modal.hidden = false;
+        body.classList.add("modal-open");
+        const btn = modal.querySelector(".modal-close");
+        if (btn) btn.focus();
+    }
+
+    function closeModal(modal) {
+        modal.hidden = true;
+        if (document.querySelectorAll(".modal:not([hidden])").length === 0) {
+            body.classList.remove("modal-open");
+        }
+        if (lastFocus && modal.id === "project-modal") lastFocus.focus();
+    }
+
+    function fillList(ul, items) {
+        ul.innerHTML = "";
+        items.forEach(function (t) {
+            const li = document.createElement("li");
+            li.textContent = t;
+            ul.appendChild(li);
+        });
+    }
+
+    const projectModal = document.getElementById("project-modal");
+    const certModal = document.getElementById("cert-modal");
+    if (!projectModal || !certModal) return;
+
+    [projectModal, certModal].forEach(function (m) {
+        m.querySelectorAll("[data-close]").forEach(function (el) {
+            el.addEventListener("click", function () { closeModal(m); });
+        });
+    });
+
+    document.addEventListener("keydown", function (e) {
+        if (e.key !== "Escape") return;
+        if (!certModal.hidden) closeModal(certModal);
+        else if (!projectModal.hidden) closeModal(projectModal);
+    });
+
+    /* ---- image / certificate viewer ---- */
+    function showImages(title, srcs) {
+        document.getElementById("cm-title").textContent = title;
+        const holder = document.getElementById("cm-body");
+        holder.innerHTML = "";
+        if (srcs.length) {
+            srcs.forEach(function (src, i) {
+                const img = document.createElement("img");
+                img.src = src;
+                img.alt = title + (srcs.length > 1 ? " " + (i + 1) : "");
+                holder.appendChild(img);
+            });
+        } else {
+            const p = document.createElement("p");
+            p.textContent = "Certificate image will be added soon.";
+            holder.appendChild(p);
+        }
+        certModal.querySelector(".modal-panel").scrollTop = 0;
+        openModal(certModal);
+    }
+
+    /* ---- projects: filter (chips are built from each card's data-tags) ---- */
+    const LABELS = { revit: "Revit", navisworks: "Navisworks", dynamo: "Dynamo", planning: "Planning", visualization: "Visualization", "shop-drawings": "Shop Drawings", rebar: "Rebar" };
+    const cards = document.querySelectorAll(".project-card");
+    const bar = document.getElementById("project-filters");
+    const tagList = [];
+    cards.forEach(function (card) {
+        (card.getAttribute("data-tags") || "").split(" ").forEach(function (tag) {
+            if (tag && tagList.indexOf(tag) === -1) tagList.push(tag);
+        });
+    });
+
+    if (bar && tagList.length > 0) {
+        ["all"].concat(tagList).forEach(function (key) {
+            const b = document.createElement("button");
+            b.type = "button";
+            b.className = "filter-chip" + (key === "all" ? " active" : "");
+            b.setAttribute("data-filter", key);
+            b.setAttribute("aria-pressed", key === "all" ? "true" : "false");
+            b.textContent = key === "all" ? "All" : (LABELS[key] || key.charAt(0).toUpperCase() + key.slice(1).replace(/-/g, " "));
+            bar.appendChild(b);
+        });
+    } else if (bar) {
+        bar.hidden = true;
+    }
+
+    document.querySelectorAll(".filter-chip").forEach(function (chip, _i, chips) {
+        chip.addEventListener("click", function () {
+            const f = chip.getAttribute("data-filter");
+            chips.forEach(function (c) {
+                const on = c === chip;
+                c.classList.toggle("active", on);
+                c.setAttribute("aria-pressed", on ? "true" : "false");
+            });
+            cards.forEach(function (card) {
+                const tags = (card.getAttribute("data-tags") || "").split(" ");
+                card.hidden = !(f === "all" || tags.indexOf(f) !== -1);
+            });
+        });
+    });
+
+    /* ---- projects: details popup ---- */
+    function loadGallery(id) {
+        const wrap = document.getElementById("pm-gallery-wrap");
+        const grid = document.getElementById("pm-gallery");
+        grid.innerHTML = "";
+        const count = PROJECTS[id].images || 0;
+        wrap.hidden = count === 0;
+        for (let n = 1; n <= count; n++) {
+            const src = "images/projects/" + id + "/" + n + ".jpg";
+            const img = document.createElement("img");
+            img.src = src;
+            img.alt = PROJECTS[id].title + " image " + n;
+            img.loading = "lazy";
+            img.addEventListener("click", function () {
+                showImages(PROJECTS[id].title, [src]);
+            });
+            grid.appendChild(img);
+        }
+    }
+
+    function openProject(id) {
+        const d = PROJECTS[id];
+        if (!d) return;
+        projectModal.dataset.current = id;
+        const metaEl = document.getElementById("pm-meta");
+        metaEl.textContent = d.meta;
+        metaEl.hidden = !d.meta;
+        document.getElementById("pm-role-wrap").hidden = d.role.length === 0;
+        document.getElementById("pm-software-wrap").hidden = d.software.length === 0;
+        document.getElementById("pm-title").textContent = d.title;
+        fillList(document.getElementById("pm-role"), d.role);
+        const sw = document.getElementById("pm-software");
+        sw.innerHTML = "";
+        d.software.forEach(function (t) {
+            const s = document.createElement("span");
+            s.textContent = t;
+            sw.appendChild(s);
+        });
+        projectModal.querySelector(".modal-panel").scrollTop = 0;
+        openModal(projectModal);
+        loadGallery(id);
+    }
+
+    function activate(el, fn) {
+        el.addEventListener("click", fn);
+        el.addEventListener("keydown", function (e) {
+            if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                fn();
+            }
+        });
+    }
+
+    cards.forEach(function (card) {
+        activate(card, function () { openProject(card.getAttribute("data-project")); });
+    });
+
+    /* ---- courses: certificate popup ---- */
+    document.querySelectorAll(".course-card[data-cert]").forEach(function (card) {
+        activate(card, function () {
+            const id = card.getAttribute("data-cert");
+            const count = parseInt(card.getAttribute("data-count"), 10) || 0;
+            const title = card.querySelector("h3").textContent.trim();
+            const srcs = [];
+            for (let n = 1; n <= count; n++) srcs.push("images/certificates/" + id + "/" + n + ".jpg");
+            showImages(title, srcs);
+        });
+    });
+});
