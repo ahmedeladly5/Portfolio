@@ -1903,15 +1903,18 @@ header {
 
 .skills-grid .skill-card:nth-child(5) { transition-delay: 0.41s; }
 
+.skills-grid .skill-card:nth-child(6) { transition-delay: 0.5s; }
+.skills-grid .skill-card:nth-child(7) { transition-delay: 0.59s; }
+
 @media (min-width: 1001px) {
-    .skills-grid { grid-template-columns: repeat(6, 1fr); }
+    /* 7 cards: 4 on the first row, 3 centered on the second */
+    .skills-grid { grid-template-columns: repeat(8, 1fr); }
     .skills-grid .skill-card { grid-column: span 2; }
-    .skills-grid .skill-card:nth-child(4) { grid-column: 2 / span 2; }
-    .skills-grid .skill-card:nth-child(5) { grid-column: 4 / span 2; }
+    .skills-grid .skill-card:nth-child(5) { grid-column: 2 / span 2; }
 }
 
 @media (max-width: 1000px) and (min-width: 761px) {
-    .skills-grid .skill-card:nth-child(5) {
+    .skills-grid .skill-card:nth-child(7) {
         grid-column: 1 / -1;
         justify-self: center;
         width: calc(50% - 11px);
@@ -2125,3 +2128,12 @@ body.modal-open { overflow: hidden; }
 .courses-grid .course-card:nth-child(5) { transition-delay: 0.41s; }
 
 .cert-body img + img { margin-top: 18px; }
+
+.filter-chip .filter-count {
+    opacity: 0.75;
+    font-weight: 500;
+}
+
+.hero-buttons .btn { white-space: nowrap; }
+
+.footer-social-links { flex-wrap: wrap; }

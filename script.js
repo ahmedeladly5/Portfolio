@@ -17,9 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const roles = [
             "Junior Structural BIM Engineer",
-            "BIM Coordination Enthusiast",
-            "Planning & Scheduling Enthusiast",
-            "Construction Management Enthusiast"
+            "Technical Office Engineer"
         ];
 
         let roleIndex = 0;
@@ -570,13 +568,18 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     /* ---- projects: filter (chips are built from each card's data-tags) ---- */
-    const LABELS = { revit: "Revit", navisworks: "Navisworks", dynamo: "Dynamo", planning: "Planning", visualization: "Visualization", "shop-drawings": "Shop Drawings", rebar: "Rebar" };
+    const LABELS = { revit: "Revit", navisworks: "Navisworks", dynamo: "Dynamo", planning: "Planning", primavera: "Primavera P6", visualization: "Visualization", "shop-drawings": "Shop Drawings", rebar: "Rebar" };
     const cards = document.querySelectorAll(".project-card");
     const bar = document.getElementById("project-filters");
+    /* Tags listed here are hidden from the filter bar (covered by "All") */
+    const COMMON = [];
     const tagList = [];
+    const tagCount = {};
     cards.forEach(function (card) {
         (card.getAttribute("data-tags") || "").split(" ").forEach(function (tag) {
-            if (tag && tagList.indexOf(tag) === -1) tagList.push(tag);
+            if (!tag || COMMON.indexOf(tag) !== -1) return;
+            tagCount[tag] = (tagCount[tag] || 0) + 1;
+            if (tagList.indexOf(tag) === -1) tagList.push(tag);
         });
     });
 
@@ -587,7 +590,13 @@ document.addEventListener("DOMContentLoaded", function () {
             b.className = "filter-chip" + (key === "all" ? " active" : "");
             b.setAttribute("data-filter", key);
             b.setAttribute("aria-pressed", key === "all" ? "true" : "false");
-            b.textContent = key === "all" ? "All" : (LABELS[key] || key.charAt(0).toUpperCase() + key.slice(1).replace(/-/g, " "));
+            const label = key === "all" ? "All" : (LABELS[key] || key.charAt(0).toUpperCase() + key.slice(1).replace(/-/g, " "));
+            const count = key === "all" ? cards.length : tagCount[key];
+            b.textContent = label + " ";
+            const c = document.createElement("span");
+            c.className = "filter-count";
+            c.textContent = "(" + count + ")";
+            b.appendChild(c);
             bar.appendChild(b);
         });
     } else if (bar) {
